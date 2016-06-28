@@ -36,7 +36,6 @@ class TemplateWriter
   end
 
   def content_write(file_path, file_contents)
-    puts "Writing file content to '#{file_path}'..."
     File.open(file_path, 'w') { |file| file.write(file_contents) }
   end
 

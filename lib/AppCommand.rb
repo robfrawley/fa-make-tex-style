@@ -17,6 +17,7 @@ class AppCommand
     @template_writer = TemplateWriter.new @url_resource_mg, @icon_collection
     @output_filepath = String.new
     @font_cheatsheet = String.new
+    @silent = false
   end
 
   def run
@@ -31,9 +32,10 @@ class AppCommand
       c.syntax = 'fontawesome-make-sty build [<output_filepath>] [<font_cheatsheet_url>]'
 
       c.option '-o', '--output-filepath STRING', String, 'Output filepath to write generated STY class file.'
-      c.option '-c', '--font-cheatsheet STRING', String, 'The CheatSheet URL to use for scraping the current iconset from.'
+      c.option '-c', '--font-cheatsheet STRING', String, 'The CheatSheet URL to use for scraping the current icon set from.'
       c.option '-p', '--project STRING', String, 'Edit the name of the project shown in the copyright of the output file.'
       c.option '-a', '--author STRING', String, 'Edit the author of the project shown in the copyright of the output file.'
+      c.option '-s', '--silent', 'Disable all command runtime output.'
 
       c.action do |args, options|
         options.default \
@@ -42,7 +44,9 @@ class AppCommand
 
         parse_opts options
 
-        @template_writer.write options.output_filepath
+        say_working
+        @template_writer.write @output_filepath
+        say_operation_overview
       end
     end
 
@@ -60,12 +64,30 @@ class AppCommand
     extra[:author] = opts.author unless opts.author == nil
 
     @template_writer.extra extra
-    @url_resource_mg.icon_path = opts.font_cheatsheet
+    @url_resource_mg.icon_path = @font_cheatsheet = opts.font_cheatsheet
+    @output_filepath = opts.output_filepath
+
+    @silent = true if opts.silent
   end
 
   def say_help
     command(:help).run([:suggest])
     exit
+  end
+
+  def say_working
+    puts 'Generating font awesome sty file for latex...' unless @silent
+  end
+
+  def say_operation_overview
+    stats = {:source_link => @font_cheatsheet,
+             :number_of_icons => @icon_collection.icons.length,
+             :release_version => @url_resource_mg.fa_version,
+             :output_file_path => @output_filepath}
+
+    stats.each do |name, value|
+      puts sprintf '%-16s : %s', name.to_s.split('_').select {|w| w.capitalize! || w }.join(' '), value.to_s unless @silent
+    end
   end
 end
 
