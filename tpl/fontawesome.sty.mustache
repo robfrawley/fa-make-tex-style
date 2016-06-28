@@ -1,0 +1,46 @@
+
+%-
+%- This file is part of the `{{ project }}` project.
+%-
+%- (c) {{ author }}
+%-
+%- For the full copyright and license information, please view the LICENSE.md
+%- file that was distributed with this source code.
+%-
+
+%-
+%- CLASS DEFINITION
+%-
+\ProvidesPackage{FontAwesome}[{{ date }} v{{ version }} {{ name }}]
+
+%-
+%- INTERPRETER REQUIREMENTS
+%-
+\NeedsTeXFormat{LaTeX2e}
+
+%-
+%- EXTERNAL PKG REQUIREMENTS
+%-
+\usepackage{fontspec}
+
+%-
+%- FONT DEFINITIONS
+%-
+\newfontfamily{\FA}{FontAwesome}
+
+%-
+%- GENERIC (display by icon name)
+%-
+\newcommand*{\faicon}[1]\{{
+  \FA\csname faicon@#1\endcsname
+}}
+
+%-
+%- ICON DEFINITIONS
+%-
+{{# icons ~}}
+\expandafter\def\csname faicon@{{ identity }}\endcsname {\symbol{"{{ code }}{{ ccb }}{{ ccb }} \def\\{{ name }} \{{\FA\csname faicon@{{ identity }}\endcsname}}
+{{/ icons ~}}
+\endinput
+
+%- EOF

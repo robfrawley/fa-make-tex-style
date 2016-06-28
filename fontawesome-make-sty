@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require_relative 'lib/AppCommand'
+
+AppCommand.new.run if $0 == __FILE__
+
+# EOF
