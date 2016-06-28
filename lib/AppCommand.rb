@@ -42,13 +42,6 @@ class AppCommand
 
         parse_opts options
 
-        @url_resource_mg.icon_path = options.font_cheatsheet
-
-        extra = Hash.new
-        extra[:project] = options.project unless options.project == nil
-        extra[:author] = options.author unless options.author == nil
-        @template_writer.extra extra
-
         @template_writer.write options.output_filepath
       end
     end
@@ -62,8 +55,12 @@ class AppCommand
   def parse_opts(opts)
     say_help if opts.help
 
-    @output_filepath = opts.output_filepath
-    @font_cheatsheet = opts.font_cheatsheet
+    extra = Hash.new
+    extra[:project] = opts.project unless opts.project == nil
+    extra[:author] = opts.author unless opts.author == nil
+
+    @template_writer.extra extra
+    @url_resource_mg.icon_path = opts.font_cheatsheet
   end
 
   def say_help
