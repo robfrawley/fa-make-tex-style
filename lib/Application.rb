@@ -10,7 +10,7 @@
 #
 
 require 'commander'
-require_relative 'Defaults'
+require_relative 'Default'
 require_relative 'Icon/Repository'
 require_relative 'Icon/Provider'
 require_relative 'Output/Writer'
@@ -55,10 +55,10 @@ class Application
 
       c.action do |args, options|
         options.default \
-          :resource  => Defaults::RESOURCE, \
-          :path      => Defaults::PATH, \
-          :c_project => Defaults::C_PROJECT, \
-          :c_author  => Defaults::C_AUTHOR
+          :resource  => Default::RESOURCE, \
+          :path      => Default::PATH, \
+          :c_project => Default::C_PROJECT, \
+          :c_author  => Default::C_AUTHOR
 
         command_opts options
 
