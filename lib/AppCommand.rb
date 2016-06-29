@@ -34,7 +34,7 @@ class AppCommand
 
       c.option '-o', '--output-filepath STRING', String, 'Output filepath to write generated STY class file.'
       c.option '-c', '--font-cheatsheet STRING', String, 'The CheatSheet URL to use for scraping the current icon set from.'
-      c.option '-p', '--project STRING', String, 'Edit the name of the project shown in the copyright of the output file.'
+      c.option '-n', '--project STRING', String, 'Edit the name of the project shown in the copyright of the output file.'
       c.option '-a', '--author STRING', String, 'Edit the author of the project shown in the copyright of the output file.'
       c.option '-p', '--package STRING', String, 'Edit the latex sty package name instead of using the default of the output path.'
       c.option '-s', '--silent', 'Disable all command runtime output.'
