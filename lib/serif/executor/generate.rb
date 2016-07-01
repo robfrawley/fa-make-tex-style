@@ -19,7 +19,10 @@ module Serif
 
     class Generate
 
-      PATH = './'
+      DEFAULT_RESOURCE     = 'http://fortawesome.github.io/Font-Awesome/cheatsheet/'
+      DEFAULT_PATH         = 'FontAwesome.sty'
+      DEFAULT_COPY_PROJECT = 'src-run/serif'
+      DEFAULT_COPY_AUTHOR  = 'Rob Frawley 2nd <rmf@src.run>'
 
       def initialize
         @provider = Serif::Provider::IconFontProvider.new
@@ -47,14 +50,12 @@ module Serif
         command_opts options
 
         @writer.write
-
-        say sprintf('Writing LaTeX font definition to file: %s', options.path)
       end
 
       private
 
       def command_opts(opts)
-        default_option opts
+        default_opts opts
 
         @writer.path       = opts.path
         @provider.resource = opts.resource
