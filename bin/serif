@@ -9,12 +9,9 @@
 # file that was distributed with this source code.
 #
 
-require 'commander'
-require 'open_uri_redirections'
-require 'nokogiri'
-require 'handlebars'
-require_relative 'lib/Application'
+require 'bundler/setup'
+require 'serif'
 
-Application.new.run if $0 == __FILE__
+Serif::App.new.run if $0 == __FILE__
 
 # EOF

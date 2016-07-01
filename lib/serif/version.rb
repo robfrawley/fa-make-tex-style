@@ -8,22 +8,8 @@
 # file that was distributed with this source code.
 #
 
-class Writer
-
-  def initialize(engine)
-    @engine = engine
-  end
-
-  def write_file(path)
-    write path
-  end
-
-  private
-
-  def write(path)
-    File.open(path, 'w') {|file| file.write(@engine.render) }
-  end
-
+module Serif
+  VERSION = '0.5.0'
 end
 
 # EOF

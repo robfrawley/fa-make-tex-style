@@ -8,12 +8,26 @@
 # file that was distributed with this source code.
 #
 
-class Default
+module Serif
 
-  RESOURCE  = 'http://fortawesome.github.io/Font-Awesome/cheatsheet/'
-  PATH      = 'FontAwesome.sty'
-  C_PROJECT = 'src-run/latex-style-builder'
-  C_AUTHOR  = 'Rob Frawley 2nd <rmf@src.run>'
+  module Repository
+
+    class AssetRepository
+
+      def initialize(provider)
+        @provider = provider
+      end
+
+      def font_files
+        @fonts ||= @provider.assets
+        @fonts
+      end
+
+      private
+
+    end
+
+  end
 
 end
 
