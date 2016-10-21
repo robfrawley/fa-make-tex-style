@@ -15,7 +15,7 @@ module Serif
 
   module Provider
 
-    class IconFontProvider
+    class IconStyleFetcher
 
       def initialize
         @resource = nil

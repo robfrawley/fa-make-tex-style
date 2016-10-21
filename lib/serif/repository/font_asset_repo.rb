@@ -12,7 +12,7 @@ module Serif
 
   module Repository
 
-    class AssetRepository
+    class FontAssetRepo
 
       def initialize(provider)
         @provider = provider
@@ -22,8 +22,6 @@ module Serif
         @fonts ||= @provider.assets
         @fonts
       end
-
-      private
 
     end
 

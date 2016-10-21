@@ -12,7 +12,7 @@ module Serif
 
   module Repository
 
-    class IconFontRepository
+    class IconStyleRepo
 
       def initialize(provider)
         @provider = provider

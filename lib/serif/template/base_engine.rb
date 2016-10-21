@@ -12,9 +12,9 @@ require 'handlebars'
 
 module Serif
 
-  module Templating
+  module Template
 
-    class Engine
+    class BaseEngine
 
       def initialize(template_path)
         @path    = template_path

@@ -8,13 +8,13 @@
 # file that was distributed with this source code.
 #
 
-require 'serif/templating/engine'
+require 'serif/template/base_engine'
 
 module Serif
 
-  module Templating
+  module Template
 
-    class StyleEngine < Serif::Templating::Engine
+    class IconStyleEngine < Serif::Template::BaseEngine
 
       TEMPLATE_FILEPATH = '../../../resources/font-awesome.sty.mustache'
 

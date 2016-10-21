@@ -8,13 +8,13 @@
 # file that was distributed with this source code.
 #
 
-require 'serif/files/writer'
+require 'serif/output/file_writer'
 
 module Serif
 
-  module Files
+  module Output
 
-    class AssetWriter < Serif::Files::FileWriter
+    class FontAssetFileWriter < Serif::Output::FileWriter
 
       def initialize(repo)
         @repo = repo

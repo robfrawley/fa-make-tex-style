@@ -8,13 +8,13 @@
 # file that was distributed with this source code.
 #
 
-require 'serif/files/writer'
+require 'serif/output/file_writer'
 
 module Serif
 
-  module Files
+  module Output
 
-    class StyleWriter < Serif::Files::FileWriter
+    class IconStyleFileWriter < Serif::Output::FileWriter
 
       def initialize(engine)
         @engine = engine

@@ -10,7 +10,7 @@
 
 module Serif
 
-  module Files
+  module Output
 
     class FileWriter
 

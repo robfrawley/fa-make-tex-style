@@ -10,8 +10,8 @@
 
 require 'commander'
 require 'serif/about'
-require 'serif/executor/download'
-require 'serif/executor/generate'
+require 'serif/executor/font_assets_runner'
+require 'serif/executor/icon_style_runner'
 
 module Serif
 
@@ -52,11 +52,11 @@ module Serif
     private
 
     def generate
-      @generate_executor ||= Serif::Executor::Generate.new
+      @generate_executor ||= Serif::Executor::IconStyleRunner.new
     end
 
     def download
-      @download_executor ||= Serif::Executor::Download.new
+      @download_executor ||= Serif::Executor::FontAssetsRunner.new
     end
 
   end

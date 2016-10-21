@@ -8,16 +8,16 @@
 # file that was distributed with this source code.
 #
 
-require 'serif/provider/icon-font'
-require 'serif/repository/icon-font'
-require 'serif/templating/style-engine'
-require 'serif/files/style-writer'
+require 'serif/provider/icon_style_fetcher'
+require 'serif/repository/icon_style_repo'
+require 'serif/template/icon_style_engine'
+require 'serif/output/icon_style_file_writer'
 
 module Serif
 
   module Executor
 
-    class Generate
+    class IconStyleRunner
 
       DEFAULT_RESOURCE     = 'http://fortawesome.github.io/Font-Awesome/cheatsheet/'
       DEFAULT_PATH         = 'FontAwesome.sty'
@@ -25,10 +25,10 @@ module Serif
       DEFAULT_COPY_AUTHOR  = 'Rob Frawley 2nd <rmf@src.run>'
 
       def initialize
-        @provider = Serif::Provider::IconFontProvider.new
-        @repo     = Serif::Repository::IconFontRepository.new(@provider)
-        @engine   = Serif::Templating::StyleEngine.new(@repo)
-        @writer   = Serif::Files::StyleWriter.new(@engine)
+        @provider = Serif::Provider::IconStyleFetcher.new
+        @repo     = Serif::Repository::IconStyleRepo.new(@provider)
+        @engine   = Serif::Template::IconStyleEngine.new(@repo)
+        @writer   = Serif::Output::IconStyleFileWriter.new(@engine)
       end
 
       def setup(command)
