@@ -8,9 +8,9 @@
 # file that was distributed with this source code.
 #
 
-require 'serif/provider/font_asset_fetcher'
-require 'serif/repository/font_asset_repo'
-require 'serif/output/font_asset_file_writer'
+require 'serif/provider/font_assets_provider'
+require 'serif/repository/font_assets_getter'
+require 'serif/output/font_assets_file_writer'
 
 module Serif
 
@@ -22,9 +22,9 @@ module Serif
       DEFAULT_FONTS = ['Roboto', 'Lato', 'Fira Mono', 'Fira Sans', 'Source Sans Pro']
 
       def initialize
-        @provider = Serif::Provider::FontAssetFetcher.new
-        @repo     = Serif::Repository::FontAssetRepo.new @provider
-        @writer   = Serif::Output::FontAssetFileWriter.new @repo
+        @provider = Serif::Provider::FontAssetsProvider.new
+        @repo     = Serif::Repository::FontAssetsGetter.new @provider
+        @writer   = Serif::Output::FontAssetsFileWriter.new @repo
         @path     = nil
       end
 

@@ -17,7 +17,7 @@ module Serif
 
   module Provider
 
-    class FontAssetFetcher
+    class FontAssetsProvider
 
       URL_BASE = 'https://fonts.google.com'
       URL_ARGS = '/download?family=%s'

@@ -14,7 +14,7 @@ module Serif
 
   module Output
 
-    class FontAssetFileWriter < Serif::Output::FileWriter
+    class FontAssetsFileWriter < Serif::Output::FileWriter
 
       def initialize(repo)
         @repo = repo

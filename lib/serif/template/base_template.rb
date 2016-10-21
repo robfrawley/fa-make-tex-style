@@ -14,7 +14,7 @@ module Serif
 
   module Template
 
-    class BaseEngine
+    class BaseTemplate
 
       def initialize(template_path)
         @path    = template_path

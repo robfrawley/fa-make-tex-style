@@ -8,9 +8,9 @@
 # file that was distributed with this source code.
 #
 
-require 'serif/provider/icon_style_fetcher'
-require 'serif/repository/icon_style_repo'
-require 'serif/template/icon_style_engine'
+require 'serif/provider/icon_style_provider'
+require 'serif/repository/icon_style_getter'
+require 'serif/template/icon_style_template'
 require 'serif/output/icon_style_file_writer'
 
 module Serif
@@ -25,9 +25,9 @@ module Serif
       DEFAULT_COPY_AUTHOR  = 'Rob Frawley 2nd <rmf@src.run>'
 
       def initialize
-        @provider = Serif::Provider::IconStyleFetcher.new
-        @repo     = Serif::Repository::IconStyleRepo.new(@provider)
-        @engine   = Serif::Template::IconStyleEngine.new(@repo)
+        @provider = Serif::Provider::IconStyleProvider.new
+        @repo     = Serif::Repository::IconStyleGetter.new(@provider)
+        @engine   = Serif::Template::IconStyleTemplate.new(@repo)
         @writer   = Serif::Output::IconStyleFileWriter.new(@engine)
       end
 

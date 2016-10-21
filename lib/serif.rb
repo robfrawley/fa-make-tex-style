@@ -19,11 +19,6 @@ module Serif
 
     include Commander::Methods
 
-    DEFAULT_RESOURCE     = 'http://fortawesome.github.io/Font-Awesome/cheatsheet/'
-    DEFAULT_PATH         = 'FontAwesome.sty'
-    DEFAULT_COPY_PROJECT = 'src-run/latex-style-builder'
-    DEFAULT_COPY_AUTHOR  = sprintf('%s <%s>', Serif::AUTHOR[:name], Serif::AUTHOR[:email])
-
     def run
       program :version, Serif::VERSION
       program :description, Serif::DESCRIPTION

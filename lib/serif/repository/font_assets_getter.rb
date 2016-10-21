@@ -12,7 +12,7 @@ module Serif
 
   module Repository
 
-    class FontAssetRepo
+    class FontAssetsGetter
 
       def initialize(provider)
         @provider = provider
